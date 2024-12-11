@@ -15,7 +15,7 @@ abstract class AppDataBase : RoomDatabase() {
                 db = Room.databaseBuilder(
                     context,
                     AppDataBase::class.java,
-                    "SavedNews"
+                    "CarsCards"
                 ).allowMainThreadQueries().build()
             }
         }

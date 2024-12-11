@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group>
+
+        <item
+            android:id="@+id/homeID"
+            android:icon="@drawable/ic_tab_car"
+            android:title="@string/home" />
+
+        <item
+            android:id="@+id/statisticID"
+            android:icon="@drawable/ic_tab_statistic"
+            android:title="@string/statistics" />
+
+        <item
+            android:id="@+id/paymentsID"
+            android:icon="@drawable/ic_tab_payments"
+            android:title="@string/payments" />
+        <item
+            android:id="@+id/settingsID"
+            android:icon="@drawable/ic_tab_settings"
+            android:title="@string/settings" />
+
+    </group>
+
+</menu>
