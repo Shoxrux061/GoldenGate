@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="180dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="10dp"
+    android:layout_marginHorizontal="5dp"
+    app:cardBackgroundColor="@color/theme_grey"
+    app:cardCornerRadius="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:id="@+id/image"
+            android:layout_height="130dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/car_image" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/currentPrice"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/sf_pro_regular"
+            android:text="18000$"
+            android:textColor="@color/theme_green"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/name"
+            android:fontFamily="@font/sf_pro_bold"
+            android:text="Skyline"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/status"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/sf_pro_regular"
+            android:text="Not Rented"
+            android:layout_marginBottom="10dp"
+            android:textColor="#E91E63"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -5,4 +5,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="theme_green">#33D4A0</color>
     <color name="grey">#6D7587</color>
+    <color name="theme_grey">#2D3548</color>
 </resources>
