@@ -49,7 +49,7 @@ class AddCarDialog : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.dialog_add_car, container, false)
+        return inflater.inflate(R.layout.dialog_edit_car, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -108,7 +108,7 @@ class AddCarDialog : BottomSheetDialogFragment() {
             currentPrice = textPrice,
             image = uri.toString(),
             name = textName,
-            status = false,
+            status = 0,
             tenantDate = null,
             tenantName = null
         )

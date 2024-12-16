@@ -30,7 +30,7 @@
             android:fontFamily="@font/sf_pro_regular"
             android:text="18000$"
             android:textColor="@color/theme_green"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -40,8 +40,10 @@
             android:id="@+id/name"
             android:fontFamily="@font/sf_pro_bold"
             android:text="Skyline"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -53,7 +55,7 @@
             android:text="Not Rented"
             android:layout_marginBottom="10dp"
             android:textColor="#E91E63"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
 
     </LinearLayout>
 

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@drawable/dialog_back"
     android:orientation="vertical">
 
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center|top"
             android:fontFamily="@font/sf_pro_bold"
-            android:text="Add Car"
+            android:text="Add Tenant"
             android:textColor="@color/white"
             android:textSize="16sp" />
 
@@ -42,36 +42,13 @@
 
     </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="50dp">
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/car_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_car_holder_2"
-            app:shapeAppearanceOverlay="@style/roundedImageView" />
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_gravity="bottom|end"
-            android:src="@drawable/ic_add" />
-
-    </FrameLayout>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/sf_pro_medium"
-        android:text="Car"
+        android:text="Tenant name"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -96,26 +73,29 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/sf_pro_medium"
-        android:text="Current Price"
+        android:text="Date"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
-    <EditText
-        android:id="@+id/price_edt"
+    <com.vicmikhailau.maskededittext.MaskedEditText
+        android:id="@+id/date_edt"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginHorizontal="20dp"
         android:backgroundTint="#484D56"
         android:fontFamily="@font/sf_pro_medium"
-        android:hint="100$"
-        android:inputType="text"
+        android:hint="__ . __ . __  -  __ . __ . __"
+        android:inputType="date"
         android:maxLines="1"
         android:singleLine="true"
         android:textColor="@color/white"
         android:textColorHint="#707984"
-        android:textSize="16sp" />
+        android:textSize="16sp"
+        app:mask="##-##-#### _ ##-##-####" />
 
-
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color" />
 
 </LinearLayout>

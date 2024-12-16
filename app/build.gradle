@@ -59,4 +59,8 @@ dependencies {
 
     //ViewPagerIndicator
     implementation(libs.dotsindicator)
+
+    //Masked EditText implementation 'io.github.vicmikhailau:MaskedEditText:5.0.2'
+    implementation libs.maskededittext
+
 }

@@ -16,6 +16,8 @@ class HomeCarsAdapter(val context: Context) : RecyclerView.Adapter<HomeCarsAdapt
 
     private val data = ArrayList<RoomArticles>()
 
+    lateinit var onClickItem: (RoomArticles) -> Unit
+
     fun setData(data: List<RoomArticles>) {
         this.data.clear()
         this.data.addAll(data)
@@ -42,13 +44,15 @@ class HomeCarsAdapter(val context: Context) : RecyclerView.Adapter<HomeCarsAdapt
             }
             binding.currentPrice.text = data.currentPrice.plus("$")
             binding.name.text = data.name
-            if (data.status) {
+            if (data.status == 1) {
                 binding.status.setTextColor(Color.GREEN)
                 binding.status.text = "Rented"
             } else {
-
                 binding.status.setTextColor(Color.RED)
                 binding.status.text = "Not Rented"
+            }
+            binding.root.setOnClickListener {
+                onClickItem.invoke(data)
             }
         }
     }

@@ -9,7 +9,11 @@
         android:id="@+id/mainScreen"
         android:name="com.golden.gate.ui.main.MainScreen"
         android:label="screen_main"
-        tools:layout="@layout/screen_main" />
+        tools:layout="@layout/screen_main" >
+        <action
+            android:id="@+id/action_mainScreen_to_detailsScreen"
+            app:destination="@id/detailsScreen" />
+    </fragment>
     <fragment
         android:id="@+id/onBoardScreen"
         android:name="com.golden.gate.ui.on_board.OnBoardScreen"
@@ -30,5 +34,13 @@
         <action
             android:id="@+id/action_splashScreen_to_mainScreen"
             app:destination="@id/mainScreen" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsScreen"
+        android:name="com.golden.gate.ui.details.DetailsScreen"
+        android:label="DetailsScreen" >
+        <argument
+            android:name="data"
+            app:argType="com.golden.gate.core.room.RoomArticles" />
     </fragment>
 </navigation>
