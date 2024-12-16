@@ -5,6 +5,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.golden.gate.R
+import com.golden.gate.ui.details.ActionCallback
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,4 +27,5 @@ class MainActivity : AppCompatActivity() {
         val graph = navHost.navController.navInflater.inflate(R.navigation.main_navigation)
         navHost.navController.graph = graph
     }
+
 }

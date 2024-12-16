@@ -1,8 +1,11 @@
 package com.golden.gate.ui.main
 
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -17,9 +20,41 @@ class MainScreen : BaseFragment(R.layout.screen_main) {
 
     override fun onBaseViewCreated(view: View, savedInstanceState: Bundle?) {
 
+        setView()
         setPager()
         onBackPressed()
 
+    }
+
+    private fun setView() {
+
+        val layoutParamsStatusBar = binding.viewPager.layoutParams as ViewGroup.MarginLayoutParams
+        layoutParamsStatusBar.topMargin = getNavigationBarHeight("status_bar_height").plus(10)
+        binding.viewPager.layoutParams = layoutParamsStatusBar
+
+        val layoutParamsNavBar = binding.bottomAppBar.layoutParams as ViewGroup.MarginLayoutParams
+        layoutParamsNavBar.bottomMargin = getNavigationBarHeight("navigation_bar_height").plus(5)
+        binding.bottomAppBar.layoutParams = layoutParamsNavBar
+
+    }
+
+    private fun getNavigationBarHeight(bar: String): Int {
+        val resources: Resources = requireContext().resources
+
+        val resName =
+            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                bar
+            } else {
+                "${bar}_landscape"
+            }
+
+        val id: Int = resources.getIdentifier(resName, "dimen", "android")
+
+        return if (id > 0) {
+            resources.getDimensionPixelSize(id)
+        } else {
+            0
+        }
     }
 
     private fun setPager() {

@@ -16,7 +16,7 @@ class HomeCarsAdapter(val context: Context) : RecyclerView.Adapter<HomeCarsAdapt
 
     private val data = ArrayList<RoomArticles>()
 
-    lateinit var onClickItem: (RoomArticles) -> Unit
+    lateinit var onClickItem: (String) -> Unit
 
     fun setData(data: List<RoomArticles>) {
         this.data.clear()
@@ -52,7 +52,7 @@ class HomeCarsAdapter(val context: Context) : RecyclerView.Adapter<HomeCarsAdapt
                 binding.status.text = "Not Rented"
             }
             binding.root.setOnClickListener {
-                onClickItem.invoke(data)
+                onClickItem.invoke(data.id)
             }
         }
     }

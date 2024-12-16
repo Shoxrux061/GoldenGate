@@ -10,6 +10,7 @@ import com.golden.gate.R
 import com.golden.gate.core.room.AppDataBase
 import com.golden.gate.core.room.RoomArticles
 import com.golden.gate.databinding.DialogAddTenantBinding
+import com.golden.gate.ui.details.ActionCallback
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class AddTenantDialog : BottomSheetDialogFragment() {
@@ -26,6 +27,7 @@ class AddTenantDialog : BottomSheetDialogFragment() {
         }
     }
 
+    private var actionCallback: ActionCallback? = null
     private val binding by viewBinding(DialogAddTenantBinding::bind)
     private val room = AppDataBase.getInstance()
     private var data: RoomArticles? = null
@@ -41,6 +43,7 @@ class AddTenantDialog : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setActions()
+        actionCallback = parentFragment as ActionCallback
         data = arguments?.getParcelable(ARG_KEY) as? RoomArticles
 
     }
@@ -54,7 +57,9 @@ class AddTenantDialog : BottomSheetDialogFragment() {
                     tenantDate = binding.dateEdt.text.toString(),
                     tenantName = binding.nameEdt.text.toString()
                 )
-                Log.d("TAGRoomData", "setActions: ${room?.getCars()}")
+
+                actionCallback?.onSaveListener()
+                dismiss()
             }
         }
 

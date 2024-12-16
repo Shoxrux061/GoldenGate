@@ -6,12 +6,14 @@ import android.os.Bundle
 import android.view.View
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.golden.gate.R
+import com.golden.gate.core.room.AppDataBase
 import com.golden.gate.databinding.PageSettingsBinding
 import com.golden.gate.ui.base.BaseFragment
 
 class SettingsPage : BaseFragment(R.layout.page_settings) {
 
     private val binding by viewBinding(PageSettingsBinding::bind)
+    private val room = AppDataBase.getInstance()
 
     override fun onBaseViewCreated(view: View, savedInstanceState: Bundle?) {
         setActions()
@@ -34,8 +36,9 @@ class SettingsPage : BaseFragment(R.layout.page_settings) {
             context?.filesDir?.deleteRecursively()
             context?.getSharedPreferences("shared_prefs_name", Context.MODE_PRIVATE)?.edit()
                 ?.clear()?.apply()
-            context?.deleteDatabase("CarsCards")
-            activity?.recreate()
+            requireContext().deleteDatabase("CarsCards")
+            room?.clearCars()
+            requireActivity().recreate()
             dialog.dismiss()
         }
 

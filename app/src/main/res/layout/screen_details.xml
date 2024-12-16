@@ -3,17 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:elevation="0dp"
     android:layout_height="match_parent"
     android:background="@drawable/dialog_back"
+    android:elevation="0dp"
     android:orientation="vertical"
     tools:context="ui.details.DetailsScreen">
 
     <FrameLayout
+        android:id="@+id/title_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="50dp">
+        android:layout_marginHorizontal="20dp">
 
         <LinearLayout
             android:id="@+id/btn_back"
@@ -130,10 +130,10 @@
         app:tabRippleColor="#00FFFFFF" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
-        android:layout_marginTop="20dp"
         android:id="@+id/view_pager"
-        android:layout_height="wrap_content"/>
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp" />
 
 
 </LinearLayout>

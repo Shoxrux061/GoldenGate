@@ -1,10 +1,11 @@
 package com.golden.gate.core.room
 
 import androidx.room.Dao
-import androidx.room.Delete
+import androidx.room.DeleteTable
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Room
 import androidx.room.Update
 
 
@@ -29,5 +30,9 @@ interface RoomDao {
     @Query("DELETE FROM cars WHERE id = :id")
     fun deleteCar(id: String)
 
+    @Query("SELECT * FROM cars WHERE id =:id")
+    fun getById(id: String): List<RoomArticles>
 
+    @Query("DELETE FROM cars")
+    fun clearBase()
 }

@@ -1,6 +1,7 @@
 package com.golden.gate.ui.details.dialog
 
 import android.Manifest
+import android.app.Notification.Action
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -20,6 +21,7 @@ import com.golden.gate.R
 import com.golden.gate.core.room.AppDataBase
 import com.golden.gate.core.room.RoomArticles
 import com.golden.gate.databinding.DialogEditCarBinding
+import com.golden.gate.ui.details.ActionCallback
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -31,6 +33,7 @@ class EditCarDialog : BottomSheetDialogFragment() {
     private var uri: Uri? = null
     private val room = AppDataBase.getInstance()
     private var data: RoomArticles? = null
+    private var actionListener: ActionCallback? = null
 
     companion object {
         private const val ARG_DATA = "data"
@@ -67,7 +70,7 @@ class EditCarDialog : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        actionListener = parentFragment as ActionCallback
         setData()
         setActions()
         registerLauncher()
@@ -92,6 +95,7 @@ class EditCarDialog : BottomSheetDialogFragment() {
 
         binding.delete.setOnClickListener {
             room?.deleteCar(data!!.id)
+            actionListener!!.onDelete()
             dismiss()
         }
 
@@ -118,6 +122,7 @@ class EditCarDialog : BottomSheetDialogFragment() {
                 room?.updateData(data)
                 setData()
                 dismiss()
+                actionListener?.onSaveListener()
             }
         }
     }

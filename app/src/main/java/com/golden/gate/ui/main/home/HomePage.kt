@@ -43,7 +43,9 @@ class HomePage : BaseFragment(R.layout.page_home) {
     private fun setDataFromRoom() {
         if (room?.getCars()!!.isEmpty()) {
             binding.placeHolder.visibility = View.VISIBLE
+            binding.carsRecycler.visibility = View.GONE
         } else {
+            binding.carsRecycler.visibility = View.VISIBLE
             binding.placeHolder.visibility = View.GONE
             adapter.setData(room.getCars())
         }
