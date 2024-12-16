@@ -6,12 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.golden.gate.R
 import com.golden.gate.databinding.ScreenDetailsBinding
 import com.golden.gate.ui.base.BaseFragment
-import com.golden.gate.ui.details.dialog.AddTenantDialog
 import com.golden.gate.ui.details.fragments.FragmentsAdapter
 import com.google.android.material.tabs.TabLayout
 
@@ -24,7 +25,14 @@ class DetailsScreen : BaseFragment(R.layout.screen_details) {
         setDataFromArgs()
         setPager()
         setTabs()
+        setActions()
 
+    }
+
+    private fun setActions() {
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     private fun setDataFromArgs() {

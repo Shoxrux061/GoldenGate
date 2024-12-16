@@ -49,7 +49,7 @@ class AddCarDialog : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.dialog_edit_car, container, false)
+        return inflater.inflate(R.layout.dialog_add_car, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,6 +75,9 @@ class AddCarDialog : BottomSheetDialogFragment() {
         }
         binding.btnSave.setOnClickListener {
             checkAndSaveCar()
+        }
+        binding.btnClose.setOnClickListener {
+            dismiss()
         }
     }
 
@@ -114,8 +117,15 @@ class AddCarDialog : BottomSheetDialogFragment() {
         )
         room?.addCar(data)
         Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
+        clearData()
         dismiss()
         onSaveListener.invoke()
+    }
+
+    private fun clearData() {
+        binding.carImage.setImageDrawable(null)
+        binding.nameEdt.text = null
+        binding.priceEdt.text = null
     }
 
     private fun checkAndRequestPermission() {

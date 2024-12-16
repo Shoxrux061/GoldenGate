@@ -5,13 +5,13 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
-import java.io.Serializable
+import java.util.UUID
 
 @Parcelize
 @Entity(tableName = "cars")
 data class RoomArticles(
 
-    @[PrimaryKey(autoGenerate = true) ColumnInfo("id")] val id: Int = 0,
+    @[PrimaryKey(false) ColumnInfo("id")] val id: String = UUID.randomUUID().toString(),
     @ColumnInfo("image") val image: String,
     @ColumnInfo("name") val name: String,
     @ColumnInfo("status") val status: Int,

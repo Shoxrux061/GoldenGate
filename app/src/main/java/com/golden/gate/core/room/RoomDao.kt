@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 
 
 @Dao
@@ -19,7 +20,10 @@ interface RoomDao {
     fun clearCars()
 
     @Query("UPDATE cars SET tenantDate =:tenantDate, tenantName=:tenantName, status=1 WHERE id = :id")
-    fun updateCar(tenantName: String, tenantDate: String, id: Int)
+    fun addTenant(tenantName: String, tenantDate: String, id: String)
+
+    @Update
+    fun updateData(data: RoomArticles)
 
 
 }

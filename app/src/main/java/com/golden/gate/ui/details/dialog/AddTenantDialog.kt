@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.room.Room
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.golden.gate.R
 import com.golden.gate.core.room.AppDataBase
@@ -50,7 +49,7 @@ class AddTenantDialog : BottomSheetDialogFragment() {
         binding.btnSave.setOnClickListener {
             if (isDataFull()) {
 
-                room?.updateCar(
+                room?.addTenant(
                     id = data!!.id,
                     tenantDate = binding.dateEdt.text.toString(),
                     tenantName = binding.nameEdt.text.toString()
@@ -58,6 +57,16 @@ class AddTenantDialog : BottomSheetDialogFragment() {
                 Log.d("TAGRoomData", "setActions: ${room?.getCars()}")
             }
         }
+
+        binding.btnClose.setOnClickListener {
+            clearData()
+            dismiss()
+        }
+    }
+
+    private fun clearData() {
+        binding.dateEdt.text = null
+        binding.nameEdt.text = null
     }
 
     private fun isDataFull(): Boolean {

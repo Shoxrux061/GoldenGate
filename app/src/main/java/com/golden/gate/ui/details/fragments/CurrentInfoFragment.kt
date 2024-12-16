@@ -44,7 +44,7 @@ class CurrentInfoFragment : BaseFragment(R.layout.fragment_current_info) {
         binding.btnAdd.setOnClickListener {
 
             if (data?.status == 1) {
-                dialogEditCar.show(parentFragmentManager, "EditCarDialog")
+                dialogEditCar.show(childFragmentManager, "EditCarDialog")
             } else {
                 dialogAddTenant.show(parentFragmentManager.beginTransaction(), "AddTenantDialog")
             }
@@ -57,7 +57,6 @@ class CurrentInfoFragment : BaseFragment(R.layout.fragment_current_info) {
         binding.price.text = data?.currentPrice
 
         if (data?.status == 1) {
-            Toast.makeText(context, "Rented", Toast.LENGTH_SHORT).show()
             binding.datesFrame.visibility = View.VISIBLE
             binding.datesText.text = data?.tenantDate
             binding.thirdView.visibility = View.VISIBLE
@@ -65,7 +64,6 @@ class CurrentInfoFragment : BaseFragment(R.layout.fragment_current_info) {
             binding.btnAdd.text = "Edit"
 
         } else {
-            Toast.makeText(context, "Not Rented", Toast.LENGTH_SHORT).show()
             binding.tenantName.text = "Nobody"
             binding.btnAdd.text = "Add Tenant"
             binding.datesFrame.visibility = View.GONE
