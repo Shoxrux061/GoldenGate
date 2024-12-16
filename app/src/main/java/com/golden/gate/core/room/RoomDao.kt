@@ -1,6 +1,7 @@
 package com.golden.gate.core.room
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -24,6 +25,9 @@ interface RoomDao {
 
     @Update
     fun updateData(data: RoomArticles)
+
+    @Query("DELETE FROM cars WHERE id = :id")
+    fun deleteCar(id: String)
 
 
 }

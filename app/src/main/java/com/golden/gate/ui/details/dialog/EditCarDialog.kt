@@ -89,6 +89,12 @@ class EditCarDialog : BottomSheetDialogFragment() {
     }
 
     private fun setActions() {
+
+        binding.delete.setOnClickListener {
+            room?.deleteCar(data!!.id)
+            dismiss()
+        }
+
         binding.btnClose.setOnClickListener {
             dismiss()
         }

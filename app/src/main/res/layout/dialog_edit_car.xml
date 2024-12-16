@@ -172,6 +172,7 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="30dp"
         android:fontFamily="@font/sf_pro_bold"
+        android:id="@+id/delete"
         android:text="Delete car"
         android:textColor="#DD233F"
         android:textSize="16sp" />

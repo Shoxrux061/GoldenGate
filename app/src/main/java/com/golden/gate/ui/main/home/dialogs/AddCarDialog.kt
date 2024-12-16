@@ -83,19 +83,24 @@ class AddCarDialog : BottomSheetDialogFragment() {
 
     private fun checkAndSaveCar() {
 
+        val uri: Uri
+        if (selectedUri != null) {
+            val byteArray = convertImageUriToByteArray(selectedUri!!)
+            var savedImage: File? = null
+            if (byteArray != null) {
+                savedImage = saveImageToFile(byteArray, "${System.currentTimeMillis()}")
+            } else {
+                Log.d("TAGErrorSaving", "checkAndSaveCar: error on savingImage")
+            }
 
-        val byteArray = convertImageUriToByteArray(selectedUri!!)
-        var savedImage: File? = null
-        if (byteArray != null) {
-            savedImage = saveImageToFile(byteArray, "${System.currentTimeMillis()}")
+            uri = Uri.fromFile(savedImage)
+
+            val inputStream: InputStream? = context?.contentResolver?.openInputStream(selectedUri!!)
+            BitmapFactory.decodeStream(inputStream)
         } else {
-            Log.d("TAGErrorSaving", "checkAndSaveCar: error on savingImage")
+            return
         }
 
-        val uri = Uri.fromFile(savedImage)
-
-        val inputStream: InputStream? = context?.contentResolver?.openInputStream(selectedUri!!)
-        BitmapFactory.decodeStream(inputStream)
 
         val textName: String = binding.nameEdt.text.toString().ifBlank {
             binding.nameEdt.error = "Input Please"
